@@ -5,6 +5,39 @@ body {
 
 }
 
+
+#alert {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3a899769;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease-in-out;
+}
+
+
+.close-btn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+.close-btn:hover {
+    color: black;
+}
+
 #navbar {
     display: flex;
     align-items: center;

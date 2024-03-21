@@ -14,6 +14,10 @@
 </head>
 
 <body>
+    <div id="alert">
+        <span class="close-btn" onclick="closeAlert()">&times;</span>
+        This is a static demo version of Chess :Puzzles. Some functionality will not be present.
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
@@ -185,6 +189,18 @@
 
         </div>
     </div>
+    <script>
+        function openAlert() {
+            document.getElementById("alert").style.top = "40px"
+        }
+
+        function closeAlert() {
+            document.getElementById("alert").style.top = "-100px"
+        }
+        window.onload = function () {
+            openAlert()
+        };
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="gameLogic.js"></script>
     <script src="moveTracker.js"></script>
