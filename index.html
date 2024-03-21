@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="#">
+    <link rel="icon" type="image/png" href="/blackpieces/Bknight.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess puzzles</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/39be4e9100.js" crossorigin="anonymous"></script>
+    <nav id="navbar">
+        <h1>Chess :Puzzles</h1>
+        <div id="nav-mid">
+            <button class="mode-select" onclick="freePlayMode()">Free Play</button>
+            <button class="mode-select" onclick="puzzleMode()">Solve Puzzles</button>
+        </div>
+        <div id="user-corner">
+            <!-- <% if (!currentUser) { %> -->
+            <a class="users-btn" id="login-btn" href="#">Log In</a>
+            <!-- <% } else { %>
+                    <div id="user-info">
+                        <p class="mb-1">
+                            <span class="mr-2"><i class="fa-regular fa-chess-queen"></i></span>
+                            <%= currentUser.username %>
+                        </p>
+                        <p id="user-rating" class="mb-0">Rating: <%= currentUser.rating %>
+                        </p>
+                    </div>
+                    <a class="users-btn" id="logout-btn" href="/logout" title="Log out">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+                    <% } %> -->
+        </div>
+    </nav>
+
+    <div id="game-window">
+        <div id="chessboard">
+            <div id="box">
+                <div class="selector piece queen"></div>
+                <div class="selector piece rook"></div>
+                <div class="selector piece bishop"></div>
+                <div class="selector piece knight"></div>
+            </div>
+            <div class="row" id="row8">
+                <div id="18" class="square light"></div>
+                <div id="28" class="square dark"></div>
+                <div id="38" class="square light"></div>
+                <div id="48" class="square dark"></div>
+                <div id="58" class="square light"></div>
+                <div id="68" class="square dark"></div>
+                <div id="78" class="square light"></div>
+                <div id="88" class="square dark"></div>
+            </div>
+
+            <div class="row" id="row7">
+                <div id="17" class="square dark"></div>
+                <div id="27" class="square light"></div>
+                <div id="37" class="square dark"></div>
+                <div id="47" class="square light"></div>
+                <div id="57" class="square dark"></div>
+                <div id="67" class="square light"></div>
+                <div id="77" class="square dark"></div>
+                <div id="87" class="square light"></div>
+            </div>
+
+            <div class="row" id="row6">
+                <div id="16" class="square light"></div>
+                <div id="26" class="square dark"></div>
+                <div id="36" class="square light"></div>
+                <div id="46" class="square dark"></div>
+                <div id="56" class="square light"></div>
+                <div id="66" class="square dark"></div>
+                <div id="76" class="square light"></div>
+                <div id="86" class="square dark"></div>
+            </div>
+
+            <div class="row" id="row5">
+                <div id="15" class="square dark"></div>
+                <div id="25" class="square light"></div>
+                <div id="35" class="square dark"></div>
+                <div id="45" class="square light"></div>
+                <div id="55" class="square dark"></div>
+                <div id="65" class="square light"></div>
+                <div id="75" class="square dark"></div>
+                <div id="85" class="square light"></div>
+            </div>
+
+            <div class="row" id="row4">
+                <div id="14" class="square light"></div>
+                <div id="24" class="square dark"></div>
+                <div id="34" class="square light"></div>
+                <div id="44" class="square dark"></div>
+                <div id="54" class="square light"></div>
+                <div id="64" class="square dark"></div>
+                <div id="74" class="square light"></div>
+                <div id="84" class="square dark"></div>
+            </div>
+
+            <div class="row" id="row3">
+                <div id="13" class="square dark"></div>
+                <div id="23" class="square light"></div>
+                <div id="33" class="square dark"></div>
+                <div id="43" class="square light"></div>
+                <div id="53" class="square dark"></div>
+                <div id="63" class="square light"></div>
+                <div id="73" class="square dark"></div>
+                <div id="83" class="square light"></div>
+            </div>
+
+            <div class="row" id="row2">
+                <div id="12" class="square light"></div>
+                <div id="22" class="square dark"></div>
+                <div id="32" class="square light"></div>
+                <div id="42" class="square dark"></div>
+                <div id="52" class="square light"></div>
+                <div id="62" class="square dark"></div>
+                <div id="72" class="square light"></div>
+                <div id="82" class="square dark"></div>
+            </div>
+
+            <div class="row" id="row1">
+                <div id="11" class="square dark"></div>
+                <div id="21" class="square light"></div>
+                <div id="31" class="square dark"></div>
+                <div id="41" class="square light"></div>
+                <div id="51" class="square dark"></div>
+                <div id="61" class="square light"></div>
+                <div id="71" class="square dark"></div>
+                <div id="81" class="square light"></div>
+            </div>
+        </div>
+        <div id="middle-display">
+            <button title="Flip Board" id="flip-btn" onclick="flipBoard()">
+                <i class="fa fa-refresh"></i>
+            </button>
+
+        </div>
+        <div id="side-display">
+            <div id="turn-displayer">
+                <div id="turn-displayer-div"></div>
+                <p id="turn-displayer-text"></p>
+            </div>
+            <div id="move-display-container">
+                <div id="move-display">
+                    <div id="move-num-displayer"></div>
+                    <div id="move-textfield-white" class="move-textfield"></div>
+                    <div id="move-textfield-black" class="move-textfield"></div>
+                </div>
+                <div id="puzzle-end-screen">
+                    <div id="puzzle-status"></div>
+                    <div id="puzzle-info">
+                        <p id="rating-change"></p>
+                        <p id="puzzle-rating"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="game-btn-container">
+                <button class="btn btn-warning game-btn" id="reset-btn" data-tool-tip="Reset Board"
+                    onclick="resetGame()">
+                    &#10226;
+                </button>
+                <button class="btn btn-warning game-btn" id="rewind-move-btn" data-tool-tip="Previous Move"
+                    onclick="rewindMove()">
+                    &#8630;
+                </button>
+                <button class="btn btn-warning game-btn" id="next-move-btn" data-tool-tip="Next Move"
+                    onclick="nextMove()">
+                    &#8631;
+                </button>
+                <button class="btn btn-warning game-btn" id="random-btn" data-tool-tip="Next Puzzle"
+                    onclick="randomPuzzle()">
+                    &#8680;
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="gameLogic.js"></script>
+    <script src="moveTracker.js"></script>
+    <script src="gameSetup.js"></script>
+    <script src="puzzleHandler.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,559 @@
+body {
+    background-color: #373e38;
+    color: #F2F4F3;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+
+    background-color: #373e38;
+    padding: 0 2rem;
+    margin-top: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.mode-select {
+    display: inline-block;
+    color: #999999;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+
+    margin: 0 1rem;
+
+    border: 0;
+    cursor: pointer;
+    transition: color 300ms linear, text-shadow 300ms ease-out;
+}
+
+.mode-select::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin-top: 2px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgb(178, 178, 178);
+    transform: scale(0);
+    transition: transform 250ms ease-in;
+}
+
+.mode-select:hover::after {
+    transform: scale(1);
+}
+
+.current-mode {
+    color: #F2F4F3;
+    text-shadow: 0 0 0.4rem white;
+}
+
+#user-corner {
+    display: flex;
+    width: 12rem;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    margin-bottom: 0.2rem;
+}
+
+.users-btn {
+    background-color: black;
+    color: #F2F4F3;
+    border: 0;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    margin-left: 0.2rem;
+    box-shadow: inset 0 0 2px white;
+    transition: all 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.users-btn:hover {
+    background-color: gold;
+    color: black;
+    box-shadow: inset 0 0 2px black;
+    outline: 1px solid black;
+}
+
+#user-rating {
+    background-color: rgb(195, 255, 0);
+    color: black;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 1px 5px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+#logout-btn {
+    margin-left: auto;
+    padding: 0.2rem 0.6rem;
+    background-color: rgb(10, 170, 170);
+}
+
+#login-btn {
+    margin-left: auto;
+    width: 4.3rem;
+}
+
+#turn-displayer-text {
+    text-align: center;
+    font-size: 20px;
+
+    margin-top: 20px;
+}
+
+
+#game-window {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#side-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #202320;
+    width: 25rem;
+    height: 35rem;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 0.5rem;
+}
+
+#turn-displayer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2f3331e5;
+
+    border-bottom: 1px solid rgb(139, 139, 139);
+    box-sizing: border-box;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+#turn-displayer-icon {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1px;
+}
+
+#move-display-container {
+    display: flex;
+    flex-direction: column;
+    height: 375px;
+    width: 350px;
+    margin: auto;
+    position: relative;
+}
+
+#move-display {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: #505955;
+    padding: 8px 10px;
+    white-space: pre-line;
+    overflow: auto;
+    border-radius: 5px;
+    position: relative;
+}
+
+#puzzle-end-screen {
+    width: 100%;
+    height: 50%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+}
+
+#move-display-container.half-container #move-display {
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    animation: halfAnimation 300ms ease-out;
+    height: 50%;
+}
+
+@keyframes halfAnimation {
+    from {
+        height: 100%
+    }
+
+    to {
+        height: 50%
+    }
+}
+
+#move-display-container.half-container #puzzle-end-screen {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    transform-origin: bottom;
+    animation: popupAnimation 300ms ease-out;
+    background-color: #383e3b;
+}
+
+@keyframes popupAnimation {
+    from {
+        transform: scaleY(0)
+    }
+
+    to {
+        transform: scaleY(1)
+    }
+}
+
+
+#puzzle-end-screen.puzzle-correct #puzzle-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3rem;
+    box-shadow: inset 0 0 0.5rem black;
+    font-size: 1.4rem;
+
+
+    background-color: green;
+}
+
+#puzzle-end-screen.puzzle-incorrect #puzzle-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3rem;
+    box-shadow: inset 0 0 0.5rem black;
+    font-size: 1.4rem;
+
+
+    background-color: red;
+}
+
+#puzzle-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.3rem;
+
+    color: #ddd;
+    line-height: 0.6rem;
+    font-size: 1.3rem;
+}
+
+::-webkit-scrollbar {
+    width: 19px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover {
+    border: solid 6px transparent;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px 15px #2a2f2d;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 15px 15px rgb(180, 180, 180);
+}
+
+
+::-webkit-scrollbar-thumb:active {
+    box-shadow: inset 0 0 15px 15px gainsboro
+}
+
+#move-num-displayer {
+    width: 2em;
+    height: 100%;
+    margin-right: 0.5em;
+}
+
+.move-number,
+.move-text {
+    margin: 0;
+    padding: 0.1em 0.5em;
+    border-radius: 0.25em;
+}
+
+.highlighted-move {
+    color: #0d0b0c;
+    background: #afa6aa;
+    width: fit-content;
+}
+
+.move-textfield {
+    width: 5.4em;
+    height: 100%;
+}
+
+#game-btn-container {
+    display: flex;
+    text-align: center;
+    /* border-top: 1px solid rgb(139, 139, 139); */
+    box-sizing: border-box;
+}
+
+.game-btn {
+    width: 5.6rem;
+    margin: 0.5rem auto;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 0;
+    box-shadow: inset 0 0 3px black;
+}
+
+#game-btn-container>.btn::after {
+    content: attr(data-tool-tip);
+    display: none;
+    position: absolute;
+    background-color: rgb(118, 124, 93);
+    color: #F2F4F3;
+    margin-bottom: 0.1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+
+    animation: scaleAnimation 200ms ease-out;
+}
+
+@keyframes scaleAnimation {
+    from {
+        transform: translateX(-50%) scale(0);
+        left: 50%;
+    }
+
+    to {
+        transform: translateX(-50%) scale(1);
+        left: 50%;
+    }
+}
+
+#game-btn-container>.btn:hover::after {
+    display: block;
+    bottom: 100%;
+    transform: translateX(-50%) scale(1);
+    left: 50%;
+
+}
+
+#middle-display {
+    width: 2.5rem;
+    height: 35rem;
+    margin-right: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+#flip-btn {
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: 0;
+    color: azure;
+    transition: transform 0.3s linear
+}
+
+#flip-btn:hover {
+    transform: rotate(180deg);
+}
+
+.flipped {
+    transform: rotate(180deg);
+}
+
+#chessboard {
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    height: 35rem;
+
+    position: relative;
+    margin: 0.625rem 0 0.625rem 5rem;
+}
+
+.row {
+    display: flex;
+    --bs-gutter-x: 0;
+}
+
+.square {
+    width: 4.375rem;
+    height: 4.375rem;
+}
+
+.light {
+    background-color: #f0d9b5;
+}
+
+.dark {
+    background-color: #b58863;
+}
+
+.just-moved.light {
+    background-color: #a4a4a4;
+}
+
+.just-moved.dark {
+    background-color: #6e6e6e;
+}
+
+.valid-target-square.light {
+    background-color: #ed9200;
+}
+
+.valid-target-square.dark {
+    background-color: #b85300;
+}
+
+.piece {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    background-position: center;
+    cursor: grab;
+
+
+}
+
+.white.pawn {
+    background-image: url(whitepieces/Wpawn.png);
+}
+
+.white.rook {
+    background-image: url(whitepieces/Wrook.png);
+}
+
+.white.knight {
+    background-image: url(whitepieces/Wknight.png);
+}
+
+.white.bishop {
+    background-image: url(whitepieces/Wbishop.png);
+}
+
+.white.king {
+    background-image: url(whitepieces/Wking.png);
+}
+
+.white.queen {
+    background-image: url(whitepieces/Wqueen.png);
+}
+
+.black.pawn {
+    background-image: url(blackpieces/Bpawn.png);
+}
+
+.black.rook {
+    background-image: url(blackpieces/Brook.png);
+}
+
+.black.knight {
+    background-image: url(blackpieces/Bknight.png);
+}
+
+.black.bishop {
+    background-image: url(blackpieces/Bbishop.png);
+}
+
+.black.king {
+    background-image: url(blackpieces/Bking.png);
+}
+
+.black.queen {
+    background-image: url(blackpieces/Bqueen.png);
+}
+
+/* selector for pawn promotions */
+#box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: absolute;
+    top: 35%;
+    bottom: 35%;
+    left: 35%;
+    right: 35%;
+
+    width: 30%;
+    height: 30%;
+    background-color: rgba(142, 140, 139, 0.522);
+    border-radius: 20px;
+    display: none;
+}
+
+
+.selector.piece:hover {
+    background-color: rgba(240, 255, 255, 0.633);
+    border-radius: 15px;
+}
+
+.selector.piece {
+    width: 47%;
+    height: 47%;
+}
+
+.selected {
+    /* border: 3px solid #C8BFC7; */
+    border: 3px solid rgb(59, 114, 91);
+    box-sizing: border-box;
+}
+
+.user-sign {
+    width: 30%;
+    margin-top: 2rem;
+}
+
+.sign-btn {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 20%;
+}
+
+.home-btn {
+    background-color: transparent;
+    color: #F2F4F3;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 2rem;
+}
